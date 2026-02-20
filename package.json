@@ -1,5 +1,5 @@
 {
-  "name": "role-acl",
+  "name": "@pabloadoue/role-acl",
   "version": "4.5.4",
   "description": "Role, Attribute and Condition based Access Control for Node.js",
   "main": "./index.js",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tensult/role-acl.git"
+    "url": "git+https://github.com/pabloadoue/role-acl.git"
   },
   "keywords": [
     "access",
@@ -50,12 +50,12 @@
     "glob",
     "wildcard"
   ],
-  "author": "Dilip Kola <dilip@tensult.com>",
+  "author": "Pablo Adoue Peralta <pablo.adoue@me.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tensult/role-acl/issues"
+    "url": "https://github.com/pabloadoue/role-acl/issues"
   },
-  "homepage": "https://github.com/tensult/role-acl#readme",
+  "homepage": "https://github.com/pabloadoue/role-acl#readme",
   "devDependencies": {
     "@types/jasmine": "^6.0.0",
     "@types/lodash.clonedeep": "^4.5.9",
@@ -94,5 +94,9 @@
     "lodash.flattendeep": "^4.4.0",
     "matcher": "^6.0.0",
     "notation": "^2.0.0"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
   }
 }
