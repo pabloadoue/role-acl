@@ -1,6 +1,6 @@
 {
   "name": "@pabloadoue/role-acl",
-  "version": "4.5.4",
+  "version": "5.0.0",
   "description": "Role, Attribute and Condition based Access Control for Node.js",
   "main": "./index.js",
   "directories": {
@@ -21,7 +21,7 @@
     "webpack": "webpack",
     "prepublishOnly": "npm test && npm run build",
     "preversion": "npm test",
-    "version": "npm run build && git add -A lib",
+    "version": "npm run build",
     "postversion": "git push && git push --tags",
     "release": "release-it",
     "release:dry": "release-it --dry-run"
