@@ -1,3 +1,10 @@
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Permission result model with helpers for granted attributes and filtering.
+ *
+ * */
 import { CommonUtil } from './../utils/';
 // dep modules
 // own modules

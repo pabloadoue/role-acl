@@ -539,7 +539,7 @@ describe('Test Suite: Access Control', function () {
                 ]
             }
         }]);
-        expect((ac.can('user').context({ 
+        expect((ac.can('user').context({
             AssignedId: 'abc123',
             CompletedAt: null,
             userId: 'abc123'
@@ -845,7 +845,7 @@ describe('Test Suite: Access Control', function () {
             grants: [
                 {
                     role: 'user', resource: 'profile', action: ['create', 'edit'], attributes: ['*'],
-                    condition: "custom:isOwner"
+                    condition: 'custom:isOwner'
                 }
             ],
             customConditionFunctions: {
@@ -877,7 +877,7 @@ describe('Test Suite: Access Control', function () {
         }
         const ac = new AccessControl();
         ac.registerConditionFunction('isOwner', customConditionFunctions.isOwner);
-        ac.grant("user").condition('custom:isOwner').execute(['create', 'edit']).on('profile');
+        ac.grant('user').condition('custom:isOwner').execute(['create', 'edit']).on('profile');
         expect((await ac.can('user').context(customContextAllowed)
             .execute('create').on('profile')).granted).toEqual(true);
         expect((await ac.can('user').context(customContextNotAllowed)
@@ -897,7 +897,7 @@ describe('Test Suite: Access Control', function () {
 
         const ac = new AccessControl();
         ac.registerConditionFunction('gte', customConditionFunctions.gte);
-        ac.grant("user").condition({Fn:'custom:gte', args:{level: 2}}).execute(['comment']).on('article');
+        ac.grant('user').condition({Fn:'custom:gte', args:{level: 2}}).execute(['comment']).on('article');
         expect((await ac.can('user').context({level: 2})
             .execute('comment').on('article')).granted).toEqual(true);
         expect((await ac.can('user').context({level: 3})
@@ -959,7 +959,7 @@ describe('Test Suite: Access Control', function () {
         }
         const ac = new AccessControl();
         ac.registerConditionFunction('isArticleOwner', myConditions.isArticleOwner);
-        ac.grant("user").condition('custom:isArticleOwner').execute(['delete', 'update']).on('article');
+        ac.grant('user').condition('custom:isArticleOwner').execute(['delete', 'update']).on('article');
 
         expect(
             ac.can('user').context({ loginUserId: 1, articleOwnerId: 1 })
@@ -982,7 +982,7 @@ describe('Test Suite: Access Control', function () {
         const ac = new AccessControl();
         ac.registerConditionFunction('isResourceOwner', myConditions.isResourceOwner);
 
-        ac.grant("user")
+        ac.grant('user')
             .condition({ Fn: 'custom:isResourceOwner', args: { resource: 'article' } })
             .execute(['delete', 'update'])
             .on('article');
@@ -1051,7 +1051,7 @@ describe('Test Suite: Access Control', function () {
             (await ac.can('user').context({ user: { id: 1 }, record: { id: 1 } })
                 .execute('delete').on('article')).granted
         ).toBe(false);  // granted === false
-        
+
         expect(
             (await ac.can('user').context({ user: { id: 1 }, record: { id: 2 } })
                 .execute('delete').on('article')).granted
@@ -1109,7 +1109,7 @@ describe('Test Suite: Access Control', function () {
             (await ac.can('editor/news').context({ user: { id: 1 }, article: { owner: 2 }, category: { type: 'news' } })
                 .execute('approve').on('article')).granted
         ).toBe(false);  // granted === false
-        
+
         expect(
             (await ac.can('editor/news').context({ user: { id: 1 }, article: { owner: 1 }, category: { type: 'tutorials' } })
                 .execute('approve').on('article')).granted
@@ -1118,15 +1118,15 @@ describe('Test Suite: Access Control', function () {
 
     it('should validate custom named functions as condition object', async function () {
         const ac = new AccessControl();
-        expect(() => 
-        ac.grant("user").condition({Fn:'custom:gte', args:{level: 2}})
+        expect(() =>
+        ac.grant('user').condition({Fn:'custom:gte', args:{level: 2}})
         .execute(['comment']).on('article')).toThrow();
     });
 
     it('should validate custom named functions as condition string', async function () {
         const ac = new AccessControl();
-        expect(() => 
-        ac.grant("user").condition('custom:gte')
+        expect(() =>
+        ac.grant('user').condition('custom:gte')
         .execute(['comment']).on('article')).toThrow();
     });
 
@@ -1191,7 +1191,7 @@ describe('Test Suite: Access Control', function () {
         }
         const ac = new AccessControl();
         ac.registerConditionFunction('isOwner', customConditionFunctions.isOwner);
-        ac.grant("user").condition('custom:isOwner').execute(['create', 'edit']).on('profile');
+        ac.grant('user').condition('custom:isOwner').execute(['create', 'edit']).on('profile');
         const newAC = AccessControl.fromJSON(ac.toJSON());
         expect(ac.toJSON()).toEqual(newAC.toJSON());
         expect((await newAC.can('user').context(customContextAllowed)
@@ -2073,7 +2073,7 @@ describe('Test Suite: Access Control', function () {
         expect(ac.getGrants().admin.$extend['editor']).toBeUndefined();
         expect(ac.getGrants().admin.$extend['agent']).toBeUndefined();
         throwsAccessControlError(() => ac.grant('roleX').extend('roleX'));
-        throwsAccessControlError(() =>ac.grant(['admin2', 'roleX']).extend(['roleX', 'admin3']));
+        throwsAccessControlError(() => ac.grant(['admin2', 'roleX']).extend(['roleX', 'admin3']));
     });
 
     it('should extend / remove roles synchronously', function () {
@@ -2185,7 +2185,7 @@ describe('Test Suite: Access Control', function () {
             attributes: ['*'], // grant only
             condition: categoryPoliticsCondition
         };
-        
+
         ac.grant(sportsEditorGrant);
         ac.grant(politicsEditorGrant);
 

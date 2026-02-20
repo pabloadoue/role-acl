@@ -1,3 +1,10 @@
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Condition handler that compares expected values using deep equality semantics.
+ *
+ * */
 import { CommonUtil } from './../utils/common';
 import { IConditionFunction } from './IConditionFunction';
 import { AccessControlError } from '../core';

@@ -1,0 +1,7 @@
+{
+  "spec_dir": "./lib/test",
+  "spec_files": [
+    "**/*.spec.js"
+  ],
+  "oneFailurePerSpec": false
+}

@@ -1,3 +1,10 @@
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Array and string-array normalization helpers used across the ACL flow.
+ *
+ * */
 export class ArrayUtil {
 
     public static toStringArray(value: any): string[] {

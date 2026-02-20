@@ -1,3 +1,10 @@
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Fluent query builder for evaluating permissions against grants.
+ *
+ * */
 import { CommonUtil } from './../utils/';
 import { IQueryInfo, Permission } from '../core';
 

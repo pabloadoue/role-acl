@@ -1,3 +1,10 @@
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Condition handler that asserts values are different.
+ *
+ * */
 import { CommonUtil } from './../utils/';
 import { IConditionFunction } from './IConditionFunction';
 import { AccessControlError } from '../core';

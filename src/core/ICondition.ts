@@ -1,3 +1,10 @@
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Type contracts for supported condition structures and function signatures.
+ *
+ * */
 
 
 import { IDictionary } from './IDictionary'

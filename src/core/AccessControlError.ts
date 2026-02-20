@@ -1,4 +1,11 @@
 /**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Custom error type for access-control validation and runtime failures.
+ *
+ * */
+/**
  *  Error class specific to `AccessControl`.
  *  @readonly
  *  @name AccessControl.Error

@@ -1,3 +1,10 @@
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Type contract describing grant/access definitions.
+ *
+ * */
 import { ICondition } from './ICondition';
 
 /**

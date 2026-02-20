@@ -1,4 +1,11 @@
-import { ArrayUtil, CommonUtil } from "./utils/";
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Main ACL service for managing grants, role inheritance, and permission queries.
+ *
+ * */
+import { ArrayUtil, CommonUtil } from './utils/';
 import {
   Access,
   IAccessInfo,
@@ -9,9 +16,9 @@ import {
   Permission,
   AccessControlError,
   IFunctionCondition
-} from "./core";
+} from './core';
 
-import { ConditionUtil } from "./conditions";
+import { ConditionUtil } from './conditions';
 
 /**
  *  @classdesc
@@ -86,7 +93,7 @@ class AccessControl {
    *
    *  @param {Object|Array} grants - A list containing the access grant
    *      definitions. See the structure of this object in the examples.
-   * 
+   *
    *  @param {Object} customConditionFns - custom condition functions
    */
   constructor(grants: any = {}, customConditionFns: IDictionary<IFunctionCondition> = {} ) {
@@ -121,9 +128,9 @@ class AccessControl {
   setGrants(grantsObject: any): AccessControl {
     this._grants = {};
     let type: string = CommonUtil.type(grantsObject);
-    if (type === "object") {
+    if (type === 'object') {
       this._grants = CommonUtil.normalizeGrantsObject(grantsObject);
-    } else if (type === "array") {
+    } else if (type === 'array') {
       grantsObject.filter((grant => !grant.extend || !grant.extend.length))
       .forEach((item: any) =>
         CommonUtil.commitToGrants(this._grants, item)

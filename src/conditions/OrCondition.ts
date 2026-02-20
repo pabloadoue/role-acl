@@ -1,8 +1,13 @@
-import { CommonUtil } from './../utils/common';
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Evaluates compound OR conditions and returns true when at least one child condition matches.
+ *
+ * */
 import { IConditionFunction } from './IConditionFunction';
-import { ConditionUtil } from './index';
-import { AccessControlError } from '../core';
-import { ArrayUtil } from '../utils/';
+import { CompoundConditionEvaluator } from './CompoundConditionEvaluator';
+import { CommonUtil } from '../utils';
 
 /**
  * Or condition
@@ -12,28 +17,7 @@ import { ArrayUtil } from '../utils/';
 export class OrCondition implements IConditionFunction {
 
     evaluate(args?: any, context?: any): boolean | Promise<boolean> {
-        if (!args) {
-            return true;
-        }
-
-        if (!context) {
-            return false;
-        }
-
-        if (CommonUtil.type(args) !== 'array' && CommonUtil.type(args) !== 'object') {
-            throw new AccessControlError('OrCondition expects type of args to be array or object')
-        }
-
-        const conditions = ArrayUtil.toArray(args);
-        const conditionEvaluations = conditions.map((condition) => {
-            return ConditionUtil.evaluate(condition, context);
-        });
-        if (CommonUtil.containsPromises(conditionEvaluations)) {
-            return Promise.all(conditionEvaluations).then(CommonUtil.someTrue);
-        } else {
-            return CommonUtil.someTrue(conditionEvaluations as boolean[]);
-        }
+        return CompoundConditionEvaluator.evaluate(args, context, CommonUtil.someTrue);
     }
 }
-
 

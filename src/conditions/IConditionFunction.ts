@@ -1,4 +1,11 @@
 /**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Interface for condition evaluators used by the condition runtime.
+ *
+ * */
+/**
  *  Condition function interface
  *  @interface
  *

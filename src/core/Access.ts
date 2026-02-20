@@ -1,3 +1,10 @@
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Fluent builder for creating and updating grants and access definitions.
+ *
+ * */
 import { CommonUtil } from './../utils/';
 import { IAccessInfo } from '../core';
 import { ICondition } from './ICondition';

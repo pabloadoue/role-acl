@@ -1,7 +1,14 @@
-import { CommonUtil } from "./../utils/";
-import { IConditionFunction } from "./IConditionFunction";
-import { AccessControlError } from "../core";
-import { ConditionUtil } from "./util";
+/**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Condition handler that validates string-prefix matching rules.
+ *
+ * */
+import { CommonUtil } from './../utils/';
+import { IConditionFunction } from './IConditionFunction';
+import { AccessControlError } from '../core';
+import { ConditionUtil } from './util';
 
 /**
  * Starts with condition
@@ -18,20 +25,20 @@ export class StartsWithCondition implements IConditionFunction {
       return false;
     }
 
-    if (CommonUtil.type(args) !== "object") {
+    if (CommonUtil.type(args) !== 'object') {
       throw new AccessControlError(
-        "StartsWithCondition expects type of args to be object"
+        'StartsWithCondition expects type of args to be object'
       );
     }
 
     return Object.keys(args).every((key) => {
-      const keyValue = key.startsWith("$.")
+      const keyValue = key.startsWith('$.')
         ? ConditionUtil.getValueByPath(context, key)
         : context[key];
 
       return (
         keyValue &&
-        CommonUtil.type(keyValue) === "string" &&
+        CommonUtil.type(keyValue) === 'string' &&
         CommonUtil.matchesAnyElement(args[key], (elm) => {
           return keyValue.startsWith(
             ConditionUtil.getValueByPath(context, elm)

@@ -1,4 +1,11 @@
 /**
+ * Fork from: tensult/role-acl:develop
+ * Refactored and updated by: Pablo Adoue Peralta
+ *
+ * Type contract for permission query inputs and execution options.
+ *
+ * */
+/**
  *  An interface that defines an access information to be queried.
  *  When you start a method chain with `AccessControl#can` method, you're
  *  actually building this query object which will be used to check the access
