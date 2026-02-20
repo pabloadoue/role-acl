@@ -1,5 +1,5 @@
-import Notation from 'notation';
-import Matcher from 'matcher';
+import { Notation } from 'notation';
+import { matcher } from 'matcher';
 import { ArrayUtil } from './array';
 import { ConditionUtil } from '../conditions';
 import { AccessControlError, IQueryInfo, IAccessInfo, ICondition } from '../core';
@@ -30,7 +30,7 @@ export class CommonUtil {
     public static anyMatch(strings: string | string[], patterns: string | string[]): boolean {
         const stringArray = ArrayUtil.toStringArray(strings);
         const patternArray = ArrayUtil.toStringArray(patterns);
-        return Matcher(stringArray, patternArray).length !== 0;
+        return matcher(stringArray, patternArray).length !== 0;
     }
 
     public static toExtendedJSON(o: any): string {

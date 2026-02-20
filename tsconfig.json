@@ -18,9 +18,7 @@
         "allowUnusedLabels": false,
         "allowJs": false, // cannot be true when decleration is true
         "noImplicitAny": false,
-        "suppressImplicitAnyIndexErrors": true,
         "noImplicitReturns": true,
-        "noImplicitUseStrict": false,
         "noFallthroughCasesInSwitch": true,
         "outDir": "./lib"
     },
